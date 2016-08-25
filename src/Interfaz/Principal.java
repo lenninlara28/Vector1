@@ -27,17 +27,91 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        txtLongitud = new javax.swing.JTextField();
+        jPanel3 = new javax.swing.JPanel();
+        cmbCrear = new javax.swing.JButton();
+        cmbManual = new javax.swing.JButton();
+        cmbAutomatico = new javax.swing.JButton();
+        cmbMostrar = new javax.swing.JButton();
+        cmbBorrar = new javax.swing.JButton();
+        cmbOperacion = new javax.swing.JComboBox<>();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtResultado = new javax.swing.JTextArea();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel1.setText("VECTOR");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, -1, -1));
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Longitud"));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jLabel2.setText("Longitud");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
+        jPanel2.add(txtLongitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 80, -1));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 180, 60));
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Opciones"));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        cmbCrear.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        cmbCrear.setText("Crear");
+        jPanel3.add(cmbCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+
+        cmbManual.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        cmbManual.setText("Llenar Manual");
+        jPanel3.add(cmbManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
+
+        cmbAutomatico.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        cmbAutomatico.setText("Llenar Automatico");
+        jPanel3.add(cmbAutomatico, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
+
+        cmbMostrar.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        cmbMostrar.setText("Mostrar");
+        jPanel3.add(cmbMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
+
+        cmbBorrar.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        cmbBorrar.setText("Borrar");
+        jPanel3.add(cmbBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
+
+        cmbOperacion.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        cmbOperacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sumatoria", "Productoria", "Mayor Elemento", "Menor Elemento" }));
+        jPanel3.add(cmbOperacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 90, -1));
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 150, 230));
+
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Resultado"));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtResultado.setEditable(false);
+        txtResultado.setColumns(20);
+        txtResultado.setRows(5);
+        jScrollPane1.setViewportView(txtResultado);
+
+        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, 140));
+
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 190, 190));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -79,5 +153,20 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify                     
+    private javax.swing.JButton cmbAutomatico;
+    private javax.swing.JButton cmbBorrar;
+    private javax.swing.JButton cmbCrear;
+    private javax.swing.JButton cmbManual;
+    private javax.swing.JButton cmbMostrar;
+    private javax.swing.JComboBox<String> cmbOperacion;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField txtLongitud;
+    private javax.swing.JTextArea txtResultado;
     // End of variables declaration                   
 }
