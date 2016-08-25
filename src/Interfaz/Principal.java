@@ -19,6 +19,8 @@ public class Principal extends javax.swing.JFrame {
      */
     
     double v[];
+    double acum=0,mayor=0,menor=0;
+    int prod=1;
     public Principal() {
         initComponents();
     }
@@ -123,7 +125,7 @@ public class Principal extends javax.swing.JFrame {
 
         cmbOperacion.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         cmbOperacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sumatoria", "Productoria", "Mayor Elemento", "Menor Elemento" }));
-        jPanel3.add(cmbOperacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 90, -1));
+        jPanel3.add(cmbOperacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 130, -1));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 150, 230));
 
@@ -135,9 +137,9 @@ public class Principal extends javax.swing.JFrame {
         txtResultado.setRows(5);
         jScrollPane1.setViewportView(txtResultado);
 
-        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 120, 140));
+        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 130, 140));
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 180, 210));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 190, 210));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -186,7 +188,7 @@ public class Principal extends javax.swing.JFrame {
             n= Double.parseDouble(JOptionPane.showInputDialog(this, "Digite el Elemento EN La Posicion "+i));
             v[i]=n;
         }
-        
+        JOptionPane.showMessageDialog(this, "Vector Creado Exitosamente");
         
     }                                         
 
@@ -196,20 +198,63 @@ public class Principal extends javax.swing.JFrame {
          n= (int) (Math.random()*50+1);
             v[i]=n;
         }
-     
+        for (int i = 0; i < v.length; i++) {
+                    txtResultado.append(v[i]+" \n ");
+                }
         JOptionPane.showMessageDialog(this, "Vector Creado Exitosamente");
     }                                             
 
     private void cmbMostrarActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        for (int i = 0; i < v.length; i++) {
-            txtResultado.append(v[i]+"\n");
-            
+        String acumu,productoria,mayori,menori;
+        int op;
+        op= cmbOperacion.getSelectedIndex();
+        switch (op){
+            case 0:
+                for (int i = 0; i < v.length; i++) {
+                    acum=acum+v[i];}
+                    acumu=String.valueOf(acum);
+                    txtResultado.append(acumu+"\n");
+                    break;
+            case 1:
+                for (int i=0;i<v.length;i++){
+                prod= (int) (prod*v[i]);}
+                productoria=String.valueOf(prod);
+                txtResultado.append(productoria+"\n");
+                break;
+            case 2:
+                for(int i=0; i<v.length; i++){
+                    if( i==0){
+                    mayor= v[0];
+                    menor= v[0];}
+                    else if(v[i] > mayor){
+                            mayor= v[i];}
+                }
+                mayori=String.valueOf(mayor);
+                txtResultado.append(mayori+"\n");
+                break;
+            case 3:
+                for(int i=0; i<v.length; i++){
+                    if( i==0){
+                    mayor= v[0];
+                    menor= v[0];}
+                    else if (v[i] > menor){
+                            menor= v[i];}
+                menori=String.valueOf(menor);
+                txtResultado.append(menori+"\n");
+                break;
+                }              
         }
+           
     }                                          
 
     private void cmbBorrarActionPerformed(java.awt.event.ActionEvent evt) {                                          
         txtLongitud.setText("");
         txtResultado.setText("");
+        v=null;
+        acum=0;
+        mayor=0;
+        menor=0;
+        prod=1;
         txtLongitud.requestFocusInWindow();
     }                                         
 
