@@ -19,8 +19,6 @@ public class Principal extends javax.swing.JFrame {
      */
     
     double v[];
-    double acum=0,mayor=0,menor=0;
-    int prod=1;
     public Principal() {
         initComponents();
     }
@@ -206,6 +204,8 @@ public class Principal extends javax.swing.JFrame {
 
     private void cmbMostrarActionPerformed(java.awt.event.ActionEvent evt) {                                           
         String acumu,productoria,mayori,menori;
+        double acum=0,mayor=0,menor=0;
+        int prod=1;
         int op;
         op= cmbOperacion.getSelectedIndex();
         switch (op){
@@ -251,10 +251,6 @@ public class Principal extends javax.swing.JFrame {
         txtLongitud.setText("");
         txtResultado.setText("");
         v=null;
-        acum=0;
-        mayor=0;
-        menor=0;
-        prod=1;
         txtLongitud.requestFocusInWindow();
     }                                         
 
