@@ -5,15 +5,20 @@
  */
 package Interfaz;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author hp 14
  */
+
 public class Principal extends javax.swing.JFrame {
 
     /**
      * Creates new form Principal
      */
+    
+    double v[];
     public Principal() {
         initComponents();
     }
@@ -58,31 +63,62 @@ public class Principal extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel2.setText("Longitud");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
-        jPanel2.add(txtLongitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 80, -1));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 180, 60));
+        txtLongitud.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtLongitudKeyTyped(evt);
+            }
+        });
+        jPanel2.add(txtLongitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 80, -1));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 190, 80));
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Opciones"));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         cmbCrear.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         cmbCrear.setText("Crear");
+        cmbCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbCrearActionPerformed(evt);
+            }
+        });
         jPanel3.add(cmbCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
 
         cmbManual.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         cmbManual.setText("Llenar Manual");
+        cmbManual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbManualActionPerformed(evt);
+            }
+        });
         jPanel3.add(cmbManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
         cmbAutomatico.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         cmbAutomatico.setText("Llenar Automatico");
-        jPanel3.add(cmbAutomatico, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
+        cmbAutomatico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbAutomaticoActionPerformed(evt);
+            }
+        });
+        jPanel3.add(cmbAutomatico, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 90, -1, -1));
 
         cmbMostrar.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         cmbMostrar.setText("Mostrar");
+        cmbMostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbMostrarActionPerformed(evt);
+            }
+        });
         jPanel3.add(cmbMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
 
         cmbBorrar.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         cmbBorrar.setText("Borrar");
+        cmbBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbBorrarActionPerformed(evt);
+            }
+        });
         jPanel3.add(cmbBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
 
         cmbOperacion.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
@@ -99,9 +135,9 @@ public class Principal extends javax.swing.JFrame {
         txtResultado.setRows(5);
         jScrollPane1.setViewportView(txtResultado);
 
-        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, 140));
+        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 120, 140));
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 190, 190));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 180, 210));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -116,6 +152,66 @@ public class Principal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>                        
+
+    private void cmbCrearActionPerformed(java.awt.event.ActionEvent evt) {                                         
+       int longitud;
+        if(txtLongitud.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(this,"Digite La Longitud","Error",JOptionPane.ERROR_MESSAGE);
+            txtLongitud.requestFocusInWindow();
+        }else if (Integer.parseInt(txtLongitud.getText().trim())==0) {
+            JOptionPane.showMessageDialog(this, "La longitud no puede ser cero", "Error", JOptionPane.ERROR_MESSAGE);
+            txtLongitud.requestFocusInWindow();
+             txtLongitud.selectAll();}
+        else{
+            longitud=Integer.parseInt(txtLongitud.getText().trim());
+            v=new double[longitud];
+            JOptionPane.showMessageDialog(this, "Vector Creado Exitosamente");
+        }
+        
+    }                                        
+
+    private void txtLongitudKeyTyped(java.awt.event.KeyEvent evt) {                                     
+        char c=evt.getKeyChar();
+         
+        if(!Character.isDigit(c)){
+            getToolkit().beep();
+            evt.consume();}
+                
+        
+    }                                    
+
+    private void cmbManualActionPerformed(java.awt.event.ActionEvent evt) {                                          
+            double n;
+        for (int i=0;i<v.length;i++){
+            n= Double.parseDouble(JOptionPane.showInputDialog(this, "Digite el Elemento EN La Posicion "+i));
+            v[i]=n;
+        }
+        
+        
+    }                                         
+
+    private void cmbAutomaticoActionPerformed(java.awt.event.ActionEvent evt) {                                              
+        double n;
+        for (int i = 0; i < v.length; i++) {
+         n= (int) (Math.random()*50+1);
+            v[i]=n;
+        }
+     
+        JOptionPane.showMessageDialog(this, "Vector Creado Exitosamente");
+    }                                             
+
+    private void cmbMostrarActionPerformed(java.awt.event.ActionEvent evt) {                                           
+        for (int i = 0; i < v.length; i++) {
+            txtResultado.append(v[i]+"\n");
+            
+        }
+    }                                          
+
+    private void cmbBorrarActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        txtLongitud.setText("");
+        txtResultado.setText("");
+        txtLongitud.requestFocusInWindow();
+    }                                         
 
     /**
      * @param args the command line arguments
